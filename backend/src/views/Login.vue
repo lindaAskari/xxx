@@ -60,8 +60,7 @@ function login(){
 </style> -->
 
 <template>
-  <h1>login page</h1>
-  <!-- <GuestLayout title="Sign in to your account">
+  <GuestLayout title="Sign in to your account">
     <form class="mt-8 space-y-6" method="POST" @submit.prevent="login">
       <div v-if="errorMsg" class="flex items-center justify-between py-3 px-5 bg-red-500 text-white rounded">
         {{ errorMsg }}
@@ -152,36 +151,36 @@ function login(){
         </button>
       </div>
     </form>
-  </GuestLayout> -->
+  </GuestLayout>
 </template>
 
 <script setup>
-// import {ref} from 'vue'
+import {ref} from 'vue'
 // import {LockClosedIcon} from '@heroicons/vue/solid'
-// import GuestLayout from "../components/GuestLayout.vue";
-// import store from "../store";
-// import router from "../router";
+import GuestLayout from "../components/GuestLayout.vue";
+import store from "../store";
+import router from "../router";
 
-// let loading = ref(false);
-// let errorMsg = ref("");
+let loading = ref(false);
+let errorMsg = ref("");
 
-// const user = {
-//   email: '',
-//   password: '',
-//   remember: false
-// }
+const user = {
+  email: '',
+  password: '',
+  remember: false
+}
 
-// function login() {
-//   loading.value = true;
-//   store.dispatch('login', user)
-//     .then(() => {
-//       loading.value = false;
-//       router.push({name: 'app.dashboard'})
-//     })
-//     .catch(({response}) => {
-//       loading.value = false;
-//       errorMsg.value = response.data.message;
-//     })
-// }
+function login() {
+  loading.value = true;
+  store.dispatch('login', user)
+    .then(() => {
+      loading.value = false;
+      router.push({name: 'app.dashboard'})
+    })
+    .catch(({response}) => {
+      loading.value = false;
+      errorMsg.value = response.data.message;
+    })
+}
 
 </script>

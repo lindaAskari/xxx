@@ -1,81 +1,81 @@
 import {createRouter, createWebHistory} from "vue-router";
-// import AppLayout from '../components/AppLayout.vue'
+import AppLayout from '../components/AppLayout.vue'
 import Login from "../views/Login.vue";
 import Dashboard from "../views/Dashboard.vue";
-// import Products from "../views/Products/Products.vue";
-// import Orders from "../views/Orders/Orders.vue";
+import Products from "../views/Products/Products.vue";
+import Orders from "../views/Orders/Orders.vue";
 // import OrderView from "../views/Orders/OrderView.vue";
-// import RequestPassword from "../views/RequestPassword.vue";
-// import ResetPassword from "../views/ResetPassword.vue";
-// import NotFound from "../views/NotFound.vue";
+import RequestPassword from "../views/RequestPassword.vue";
+import ResetPassword from "../views/ResetPassword.vue";
+import NotFound from "../views/NotFound.vue";
 import store from "../store";
 
 
 
 const routes = [
-  // {
-  //   path: '/',
-  //   redirect: '/app'
-  // },
-  // {
-  //   path: '/app',
-  //   name: 'app',
-  //   component: AppLayout,
-  //   meta: {
-  //     requiresAuth: true
-  //   },
-  //   children: [
+  {
+    path: '/',
+    redirect: '/app'
+  },
+  {
+    path: '/app',
+    name: 'app',
+    component: AppLayout,
+    meta: {
+      requiresAuth: true
+    },
+    children: [
       {
         path: '/dashboard',
         name: 'app.dashboard',
         component: Dashboard
       },
-      // {
-      //   path: 'products',
-      //   name: 'app.products',
-      //   component: Products
-      // },
-      // {
-      //   path: '/orders',
-      //   name: 'app.orders',
-      //   component: Orders
-      // },
+      {
+        path: 'products',
+        name: 'app.products',
+        component: Products
+      },
+      {
+        path: '/orders',
+        name: 'app.orders',
+        component: Orders
+      },
       // {
       //   path: 'orders/:id',
       //   name: 'app.orders.view',
       //   component: OrderView
       // }
-    // ]
-  // },
+    ]
+  },
   {
     path: '/login',
     name: 'login',
     component: Login,
-    // meta: {
-    //   requiresGuest: true
-    // }
+    meta: {
+      requiresGuest: true
+    }
   },
-  // {
-  //   path: '/request-password',
-  //   name: 'requestPassword',
-  //   component: RequestPassword,
-  //   meta: {
-  //     requiresGuest: true
-  //   }
-  // },
-  // {
-  //   path: '/reset-password/:token',
-  //   name: 'resetPassword',
-  //   component: ResetPassword,
-  //   meta: {
-  //     requiresGuest: true
-  //   }
-  // },
-  // {
-  //   path: '/:pathMatch(.*)',
-  //   name: 'notfound',
-  //   component: NotFound,
-  // }
+  {
+    path: '/request-password',
+    name: 'requestPassword',
+    component: RequestPassword,
+    meta: {
+      requiresGuest: true
+    }
+  },
+  {
+    path: '/reset-password/:token',
+    name: 'resetPassword',
+    component: ResetPassword,
+    meta: {
+      requiresGuest: true
+    }
+  },
+  {
+    path: '/:pathMatch(.*)',
+    name: 'notfound',
+    component: NotFound,
+  }
 ];
 
 const router = createRouter({
